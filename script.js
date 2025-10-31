@@ -13,7 +13,8 @@ n.forEach(v => {
 
 for(let [key,value] of map){
 	if(value > Math.floor(n.length/2)){
-		return key;
+		console.log(key);
+		break;
 	}
 }
 
