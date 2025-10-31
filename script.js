@@ -1,20 +1,19 @@
-//your code here
-let n = [2,1,2];
+const express = require("express");
+const app = express();
+app.use(express.json());
 
-let map = new Map();
+// Function to find majority element
+function majorElement(arr) {
+  const map = new Map();
 
-n.forEach(v => {
-	if(!map.has(v)){
-		map.set(v,1);
-	}else{
-		map.set(v,map.get(v)+1);
-	}
-})
+  arr.forEach((v) => {
+    map.set(v, (map.get(v) || 0) + 1);
+  });
 
-for(let [key,value] of map){
-	if(value > Math.floor(n.length/2)){
-		console.log(key);
-		break;
-	}
+  for (let [key, value] of map) {
+    if (value > Math.floor(arr.length / 2)) {
+      return key;
+    }
+  }
+  return -1; // if no majority element
 }
-
